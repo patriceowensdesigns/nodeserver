@@ -31,7 +31,6 @@ app.use('/user', user);
 /*************************
  * Protected route *
  *************************/
-app.use(require('./middleware/validate-session'));
 app.use('/journal', journal);
 
 app.listen(3000, function(){
