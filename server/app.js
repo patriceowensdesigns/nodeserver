@@ -2,8 +2,8 @@ require("dotenv").config();
 let express = require('express');
 let app = express();
 let sequelize = require('./db');
-let journal = require('./controllers/journalController');
 let user = require('./controllers/userController');
+let journal = require('./controllers/journalController');
 
 // ***** NEW CODE START *****
 // app.use('/test', function(req, res){
@@ -20,6 +20,7 @@ let user = require('./controllers/userController');
 // *****ADD 2 LINES BELOW
 sequelize.sync();
 //sequelize.sync({force: true})
+app.use(require('./middleware/headers'));
 
 app.use(express.json());
 
